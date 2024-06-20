@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 3</title>
+
+</head>
+<body>
+<h2>Lanzamiento del Dado</h2>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        var conteo = [0, 0, 0, 0, 0, 0]; 
+    
+        
+        function lanzarDado() {   
+            conteo = [0, 0, 0, 0, 0, 0];
+            for (var i = 0; i < 100; i++){
+                var resultado = Math.floor(Math.random() * 6) + 1;
+                conteo[resultado - 1]++;
+            }
+            mostrarResultados();
+        }
+    
+        function mostrarResultados(){
+            var resultados = document.getElementById("resultados");
+            resultados.innerHTML="";
+            for (var i=0;i<conteo.length;i++){
+                var numero =i+1;
+                var veces=conteo[i];
+                var mensaje="Número "+numero+" del dado: "+veces+ " veces.<br>";
+                resultados.innerHTML+=mensaje;
+            }
+    
+            var total=conteo.reduce((acc,curr)=>acc+curr,0);
+            resultados.innerHTML += "Total de veces evaluadas: " + total + " tiros de dado.";
+        }
+    
+        lanzarDado();
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "F5") {
+                lanzarDado();
+            }
+        });
+    });
+    </script>
+
+<div id="resultados">
+</div>
+
+</body>
+</html>

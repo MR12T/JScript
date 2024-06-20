@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 2 - EP3</title>
+
+</head>
+<body>
+    <h3>Realice un script que le pida 10 numeros, ud deberá imprimir los mismos en una primera lista, y en una segunda lista deberá imprimir el valor “Y”  de está función:</h3>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            var numeros=[];
+            for (var i=1;i<=10;i++) {
+                var valor=parseFloat(prompt("Ingrese el número " + i + ":"));
+                numeros.push(valor);
+            }
+            var listaNumeros=document.getElementById("lista-numeros");
+            for (var i = 0; i < numeros.length; i++) {
+                var li = document.createElement("li");
+                li.textContent = numeros[i];
+                listaNumeros.appendChild(li);
+            }
+            var listaY = document.getElementById("lista-y");
+            for (var i = 0; i < numeros.length; i++) {
+                var x = numeros[i];
+                var y = x*x + 2*x + 20;
+                var li = document.createElement("li");
+                li.textContent = "y = " + y.toFixed(2);
+                listaY.appendChild(li);
+            }
+        });
+        </script>
+
+<h3>Números ingresados:</h3>
+<ul id="lista-numeros">
+</ul>
+
+<h3>Valores de y:</h3>
+<ul id="lista-y">
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - EP3</title>
+    <style>
+        body {
+            font-family: monospace;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>Formar Una Cruz con un nombre</h1>
+    <pre id="resultado"></pre>
+<body>
+    <script>
+        var nombre,longitud,resultado
+
+         nombre=prompt("Ingrese el nombre para formar en cruz").toUpperCase();
+         longitud=nombre.length;
+         resultado='';
+    
+        
+        for(let i=longitud-1;i>=1;i--) {
+            resultado+=' '.repeat(longitud - 1)+nombre[i]+'\n';
+        }
+    
+        
+        var primeraPalabraReves = '';
+        for(var i=longitud-1;i>=1;i--) { 
+            primeraPalabraReves += nombre[i];
+        }
+        resultado+=primeraPalabraReves+nombre[0]+nombre.substr(1)+'\n';
+    
+        
+        for (var i=0;i<longitud-1;i++) {
+            resultado+=' '.repeat(longitud - 1)+nombre[i + 1]+'\n';
+        }
+    
+        document.getElementById('resultado').innerText = resultado;
+    </script>
+    
+</body>
+</html>
+
+
+ 
